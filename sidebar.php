@@ -24,13 +24,7 @@
                             <i class="fa fa-user"></i>
                             <?php include("connect.php");
                                 $visit_count=0;
-                                $date=date('Y-m-d');
-		                            $result = $db->prepare("SELECT id FROM attends WHERE  date='$date'  GROUP BY user_id; ");
-				                        $result->bindParam(':userid', $date);
-                                $result->execute();
-                                for($i=0; $row = $result->fetch(); $i++){
-				                        $visit_count+=1;
-				                      } ?>
+                                $date=date('Y-m-d'); ?>
                             <span class="label label-warning"><?php echo $visit_count; ?></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -40,18 +34,7 @@
                                 <ul class="menu">
 
                                     <li>
-                                        <?php $today=date('Y-m-d');
-                                         $result = $db->prepare("SELECT * FROM attends WHERE date='$today'");
-		                                     $result->bindParam(':userid', $res);
-		                                     $result->execute();
-		                                     for($i=0; $row = $result->fetch(); $i++){		                                    
-                                       ?>
-                                        <a
-                                            href="attend_rp.php?d1=<?php echo date('Y-m-d'); ?>&d2=<?php echo date('Y-m-d'); ?>">
-                                            <i class="fa fa-500px text-info"></i>
-                                            <?php echo $row['user_name']; ?>(<?php echo $row['time']; ?>)
-                                        </a>
-                                        <?php } ?>
+                                      
                                     </li>
                                 </ul>
                             </li>
@@ -158,33 +141,9 @@
                         </span>
                     </a>
                 </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-group"></i> <span>Member</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="cus.php"><i class="fa fa-circle-o text-yellow"></i> Add Member</a></li>
-                        <li><a href="cus_view.php"><i class="fa fa-circle-o text-aqua"></i> View Member</a></li>
-                    </ul>
-                </li>
-
-
-
-
 
                 <li>
-                    <a href="payment.php">
-                        <i class="fa fa-usd"></i> <span>Payment</span>
-                        <span class="pull-right-container">
-
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="finger.php">
+                    <a href="cat.php">
                         <i class="fa fa-500px"></i> <span>Fingerprint</span>
                         <span class="pull-right-container">
 
@@ -192,33 +151,6 @@
                     </a>
                 </li>
 
-
-
-
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-line-chart"></i> <span>Report</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="sales_rp.php?d1=<?php echo date("Y-m-d");?>&d2=<?php echo date("Y-m-d");?>"><i
-                                    class="fa fa-circle-o text-yellow"></i> Payment Report</a></li>
-                        <li><a href="attend_rp.php?d1=<?php echo date("Y-m-d");?>&d2=<?php echo date("Y-m-d");?>"><i
-                                    class="fa fa-circle-o text-yellow"></i> Attendees Report</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="device.php">
-                        <i class="fa fa-tablet"></i> <span>Device</span>
-                        <span class="pull-right-container">
-                            <small class="label pull-right bg-green">Online</small>
-                        </span>
-                    </a>
-                </li>
 
 
             </ul>
