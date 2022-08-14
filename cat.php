@@ -130,6 +130,26 @@
                                             </div>
                                         </div>
 
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>SUB Category 4</label>
+                                                    <div id="cat3"><input type="text" class="form-control" disabled>
+                                                    </div>
+                                                    <div id="new_cat3"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>SUB Category 4</label>
+                                                    <div id="cat4"><input type="text" class="form-control" disabled>
+                                                    </div>
+                                                    <div id="new_cat4"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
 
 
