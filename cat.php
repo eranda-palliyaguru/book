@@ -309,7 +309,6 @@
         xmlhttp.send();
     }
 
-
     // sub cat 2
     function sub_cat2(str) {
         if (str.length == 0) {
@@ -318,13 +317,57 @@
         }
         if (str == "new") {
             document.getElementById("new_cat2").innerHTML =
-                '<input name="sub_cat_name2" type="text"  class="form-control" >';
+                '<input name="sub_cat_name1" type="text"  class="form-control" >';
             return;
         }else{
             document.getElementById("new_cat2").innerHTML = '';
         }
-        
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("cat3").innerHTML = this.responseText;
+            }
+        }
+        document.getElementById("new_cat2").innerHTML = '';
+        xmlhttp.open("GET", "sub_cat2.php?q=" + str, true);
+        xmlhttp.send();
     }
+
+    // sub cat 3
+    function sub_cat3(str) {
+        if (str.length == 0) {
+            document.getElementById("cat4").innerHTML = "";
+            return;
+        }
+        if (str == "new") {
+            document.getElementById("new_cat3").innerHTML =
+                '<input name="sub_cat_name1" type="text"  class="form-control" >';
+            return;
+        }else{
+            document.getElementById("new_cat3").innerHTML = '';
+        }
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("cat4").innerHTML = this.responseText;
+            }
+        }
+        document.getElementById("new_cat3").innerHTML = '';
+        xmlhttp.open("GET", "sub_cat2.php?q=" + str, true);
+        xmlhttp.send();
+    }
+   
+
+        
+
 
     $(function() {
         $("#example1").DataTable({
