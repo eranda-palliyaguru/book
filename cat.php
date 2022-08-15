@@ -142,7 +142,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label>SUB Category 4</label>
+                                                    <label>SUB Category 5</label>
                                                     <div id="cat4"><input type="text" class="form-control" disabled>
                                                     </div>
                                                     <div id="new_cat4"></div>
@@ -251,7 +251,7 @@
                 document.getElementById("cat").innerHTML = this.responseText;
             }
         }
-        xmlhttp.open("GET", "sub_cat_select.php?q=" + str, true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat", true);
         xmlhttp.send();
     }
 
@@ -277,7 +277,7 @@
             }
         }
         document.getElementById("new_cat").innerHTML = '';
-        xmlhttp.open("GET", "sub_cat1.php?q=" + str, true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat1", true);
         xmlhttp.send();
     }
 
@@ -305,7 +305,7 @@
             }
         }
         document.getElementById("new_cat1").innerHTML = '';
-        xmlhttp.open("GET", "sub_cat2.php?q=" + str, true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat2", true);
         xmlhttp.send();
     }
 
@@ -317,7 +317,7 @@
         }
         if (str == "new") {
             document.getElementById("new_cat2").innerHTML =
-                '<input name="sub_cat_name1" type="text"  class="form-control" >';
+                '<input name="sub_cat_name2" type="text"  class="form-control" >';
             return;
         }else{
             document.getElementById("new_cat2").innerHTML = '';
@@ -333,7 +333,7 @@
             }
         }
         document.getElementById("new_cat2").innerHTML = '';
-        xmlhttp.open("GET", "sub_cat2.php?q=" + str, true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat3", true);
         xmlhttp.send();
     }
 
@@ -345,7 +345,7 @@
         }
         if (str == "new") {
             document.getElementById("new_cat3").innerHTML =
-                '<input name="sub_cat_name1" type="text"  class="form-control" >';
+                '<input name="sub_cat_name3" type="text"  class="form-control" >';
             return;
         }else{
             document.getElementById("new_cat3").innerHTML = '';
@@ -361,7 +361,34 @@
             }
         }
         document.getElementById("new_cat3").innerHTML = '';
-        xmlhttp.open("GET", "sub_cat2.php?q=" + str, true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat4", true);
+        xmlhttp.send();
+    }
+
+    function sub_cat4(str) {
+        if (str.length == 0) {
+            document.getElementById("cat5").innerHTML = "";
+            return;
+        }
+        if (str == "new") {
+            document.getElementById("new_cat4").innerHTML =
+                '<input name="sub_cat_name4" type="text"  class="form-control" >';
+            return;
+        }else{
+            document.getElementById("new_cat4").innerHTML = '';
+        }
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("cat5").innerHTML = this.responseText;
+            }
+        }
+        document.getElementById("new_cat4").innerHTML = '';
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat5", true);
         xmlhttp.send();
     }
    
