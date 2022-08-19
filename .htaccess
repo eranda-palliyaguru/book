@@ -2,3 +2,4 @@ Options -Includes
 RewriteEngine On
 RewriteRule ^home$ index.php [NC,L]
 RewriteRule ^category$ cat.php [NC,L]
+RewriteRule ^book$ book.php [NC,L]
