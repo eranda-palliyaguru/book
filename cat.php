@@ -251,7 +251,7 @@
                 document.getElementById("cat").innerHTML = this.responseText;
             }
         }
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat&type=1", true);
         xmlhttp.send();
     }
 
@@ -277,7 +277,7 @@
             }
         }
         document.getElementById("new_cat").innerHTML = '';
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat1", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat1&type=1", true);
         xmlhttp.send();
     }
 
@@ -305,7 +305,7 @@
             }
         }
         document.getElementById("new_cat1").innerHTML = '';
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat2", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat2&type=1", true);
         xmlhttp.send();
     }
 
@@ -333,7 +333,7 @@
             }
         }
         document.getElementById("new_cat2").innerHTML = '';
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat3", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat3&type=1", true);
         xmlhttp.send();
     }
 
@@ -361,7 +361,7 @@
             }
         }
         document.getElementById("new_cat3").innerHTML = '';
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat4", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat4&type=1", true);
         xmlhttp.send();
     }
 
@@ -388,7 +388,7 @@
             }
         }
         document.getElementById("new_cat4").innerHTML = '';
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat5", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat5&type=1", true);
         xmlhttp.send();
     }
    

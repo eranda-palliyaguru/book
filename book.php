@@ -115,7 +115,7 @@
                                                     </div>
 
                                                 </div>
-
+                                                <textarea class="form-control" rows="8" placeholder="Enter ..." ></textarea>
                                             </div>
                                             <div class="modal-footer justify-content-between">
                                                 <button type="button" class="btn btn-default"
@@ -223,7 +223,7 @@
         document.getElementById("cat2").innerHTML = "";
         document.getElementById("cat3").innerHTML = "";
         document.getElementById("cat4").innerHTML = "";
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat&type=2", true);
         xmlhttp.send();
     }
 
@@ -250,7 +250,7 @@
         document.getElementById("cat2").innerHTML = "";
         document.getElementById("cat3").innerHTML = "";
         document.getElementById("cat4").innerHTML = "";
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat1", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat1&type=2", true);
         xmlhttp.send();
     }
 
@@ -274,7 +274,7 @@
         }
         document.getElementById("cat3").innerHTML = "";
         document.getElementById("cat4").innerHTML = "";
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat2", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat2&type=2", true);
         xmlhttp.send();
     }
 
@@ -297,7 +297,7 @@
             }
         }
         document.getElementById("cat4").innerHTML = "";
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat3", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat3&type=2", true);
         xmlhttp.send();
     }
 
@@ -318,7 +318,7 @@
                 document.getElementById("cat4").innerHTML = this.responseText;
             }
         }
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat4", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat4&type=2", true);
         xmlhttp.send();
     }
 
@@ -338,7 +338,7 @@
                 document.getElementById("cat5").innerHTML = this.responseText;
             }
         }
-        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat5", true);
+        xmlhttp.open("GET", "sub_cat.php?q=" + str + "&tabel=sub_cat5&type=2", true);
         xmlhttp.send();
     }
 
