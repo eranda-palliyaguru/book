@@ -61,6 +61,6 @@ if ($db->query($sql) === TRUE) {
 } else {
 
 }
-header("location:../category");
+header("location:../book?id=$book");
 
  ?>
