@@ -50,7 +50,6 @@
             <!-- Content Header (Page header) -->
             <br>
             <section class="content">
-
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
@@ -59,22 +58,25 @@
                             <div class="modal-content bg-info">
                                 <div class="modal-header">
 
-                                    
+
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="save/save_cat.php" method="post">
-
-
-
-
+                                    <form action="save/save_content.php" method="post">
+                                        <input type="hidden" name="sub_cat1s" value="0">
+                                        <input type="hidden" name="sub_cat2s" value="0">
+                                        <input type="hidden" name="sub_cat3s" value="0">
+                                        <input type="hidden" name="sub_cat4s" value="0">
+                                        <input type="hidden" name="sub_cat5s" value="0">
+                                        <input type="hidden" name="book" value="<?php echo $_GET['id']; ?>">
                                         <div class="row">
                                             <div class="col-sm-2">
                                                 <!-- text input -->
                                                 <div class="form-group">
-                                                    <select name="main_cat_s" onchange="main_cat(this.value)" class="form-control">
+                                                    <select name="main_cat_s" onchange="main_cat(this.value)"
+                                                        class="form-control">
                                                         <option value="">Select</option>
                                                         <?php 	$result = $db->prepare("SELECT * FROM main_cat");
 		                                                            $result->bindParam(':userid', $res);
@@ -95,52 +97,84 @@
                                             <div class="col-sm-2">
                                                 <div class="form-group">
                                                     <div id="cat1"></div>
-                                                    </div>
                                                 </div>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group">
-                                                        <div id="cat2"></div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group">
-                                                        <div id="cat3"></div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group">
-                                                        <div id="cat4"></div>
-                                                    </div>
-
-                                                </div>
-                                                <textarea class="form-control" rows="8" placeholder="Enter ..." ></textarea>
                                             </div>
-                                            <div class="modal-footer justify-content-between">
-                                                <button type="button" class="btn btn-default"
-                                                    data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <div id="cat2"></div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <div id="cat3"></div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <div id="cat4"></div>
+                                                </div>
+
+                                            </div>
+                                            <textarea name="note" class="form-control" rows="8"
+                                                placeholder="Enter ..."></textarea>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
                                     </form>
                                 </div>
                             </div>
                             <!-- /.modal-content -->
-
-
                         </div>
                     </div>
-                </div>
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-        <?php include("footer.php"); ?>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+                </div>
+                <br>
+                <?php $id=$_GET['id'];
+                     $result = $db->prepare("SELECT * FROM content WHERE book = '$id' ");
+		              $result->bindParam(':userid', $res);
+		              $result->execute();
+		              for($i=0; $row = $result->fetch(); $i++){
+                 ?>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="right badge badge-danger"><?php echo $row['main_cat']; ?></span>
+                                <span class="right badge badge-info"><?php echo $row['sub_cat']; ?></span>
+                                <span class="right badge badge-warning"><?php echo $row['sub_cat1']; ?></span>
+                                <span class="right badge badge-success"><?php echo $row['sub_cat2']; ?></span>
+                                <span class="right badge badge-primary"><?php echo $row['sub_cat3']; ?></span>
+                                <span class="right badge badge-secondary"><?php echo $row['sub_cat4']; ?></span>
+                            </h3>
+                        </div>
+
+                        <div class="card-body">
+                            <p><?php echo $row['note']; ?></p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <?php } ?>
+
+        </div>
+
+        </section>
+
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <?php include("footer.php"); ?>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 
@@ -236,7 +270,7 @@
             document.getElementById("cat4").innerHTML = "";
             return;
         }
-        
+
         if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();
         } else { // code for IE6, IE5
