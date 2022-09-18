@@ -6,7 +6,7 @@ $main_cat=$_POST['main_cat_s'];
 
 if($_POST['sub_cats']=="new"){
   $name=$_POST['sub_cat_name'];
-  $sql = "INSERT INTO sub_cat (name,main_cat) VALUES ('$name', '$main_cat')";
+  $sql = "INSERT INTO sub_cat (name,cat_id) VALUES ('$name', '$main_cat')";
 
 if ($db->query($sql) === TRUE) {
   echo "New record created successfully";
